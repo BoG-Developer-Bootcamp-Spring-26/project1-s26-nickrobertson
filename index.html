@@ -5,26 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <h1>Bits of Good Mid-Semester Project</h1>
-
-    <div>
+<div id="pokedex-container">
+    <div id="pokemon-container">
       <img
-        src="https://upload.wikimedia.org/wikipedia/en/d/d4/Pokemon-Ditto-Artwork.png"
-        alt="Image of Pokemon"
+        id="pokemon-image"
+        src="images/ditto.png"
       />
-      <h2>Ditto</h2>
-      <div>
+      <h2 id="pokemon-name">Ditto</h2>
+      <div id="types-container">
         <h3>Types:</h3>
         <p>Normal</p>
       </div>
+      <button id="left-button">Left</button>
+      <button id="right-button">Right</button>
     </div>
 
-    <div>
+    <div id="pokemon-info">
       <h2>Info</h2>
 
-      <div>
+      <div id="pokemon-stats">
         <p>height:</p>
         <p>weight:</p>
         <p>hp:</p>
@@ -34,6 +42,11 @@
         <p>special-defence:</p>
         <p>speed:</p>
       </div>
+
+      <button id="info-button">Info
+
+      </button>
+      <button id="moves-button">Moves</button>
     </div>
   </body>
 </html>
