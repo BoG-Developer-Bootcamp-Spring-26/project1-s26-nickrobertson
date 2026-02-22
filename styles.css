@@ -13,6 +13,12 @@ p {
     margin: 0;
 }
 
+h2 {
+    text-align: center;
+    font-weight: 700;
+    font-size: 36px;
+}
+
 #pokedex-container {
     display: flex;
     gap: 180px;
@@ -25,6 +31,8 @@ p {
 
 #pokemon-info {
     flex: 1;
+    margin-right: 129px;
+    margin-top: -40px;
 }
 
 #pokemon-image {
@@ -34,17 +42,20 @@ p {
 }
 
 #pokemon-name {
-    font-size: 36px;
+    
     font-weight: 400;
     width: 463px;
     height: 67px;
 
     border: black solid 1px;
+    border-radius: 10px;
     background-color: #E8E8E8;
+
 
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-top: 20px;
 
 }
 
@@ -56,6 +67,56 @@ p {
     background-color: #E8E8E8;
 
     width: 486px;
-    height: 598px;
+    height: 550px;
+    padding-left: 20px;
+    padding-top : 30px;
+    margin-top: 35px;
 }
+
+.button-container {
+    display: flex;
+    gap: 50px;
+    justify-content: center;
+    margin-top: 30px;
+    margin-bottom: 35px;
+}
+
+.button-default {
+    width: 173px;
+    height: 69px;
+    border: none;
+    border-radius: 10px;
+    font-size: 36px;
+}
+
+.button-default img {
+    width: 61px;
+    height: 61px;
+}
+ 
+
+#right-button {
+    rotate: 180deg;
+}
+
+#type {
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: -15px;
+
+    width: 117px;
+    height: 41px;
+    border-radius: 10px;
+    background-color: #A8A77A;
+}
+
+#info-button {
+    background-color: #7CFF79;
+    margin-top: 35px;
+}
+
+#moves-button {
+    margin-top: 35px;
 }

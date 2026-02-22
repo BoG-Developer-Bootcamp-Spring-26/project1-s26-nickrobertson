@@ -23,10 +23,16 @@
       <h2 id="pokemon-name">Ditto</h2>
       <div id="types-container">
         <h3>Types:</h3>
-        <p>Normal</p>
+        <p id="type">Normal</p>
       </div>
-      <button id="left-button">Left</button>
-      <button id="right-button">Right</button>
+      <div class="button-container">
+      <button id="left-button" class="button-default">
+        <img src="images/button-image.png" alt="left button"/>
+      </button>
+      <button id="right-button" class="button-default">
+        <img src="images/button-image.png" alt="right button"/>
+      </button>
+      </div>
     </div>
 
     <div id="pokemon-info">
@@ -43,10 +49,10 @@
         <p>speed:</p>
       </div>
 
-      <button id="info-button">Info
-
-      </button>
-      <button id="moves-button">Moves</button>
+      <div class="button-container">
+        <button class="button-default" id="info-button">Info</button>
+        <button class="button-default" id="moves-button">Moves</button>
+      </div>
     </div>
   </body>
 </html>
