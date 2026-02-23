@@ -29,6 +29,8 @@ async function fetchPokemonData(id) {
         const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
         const data = await response.json();
         updateImage(data.sprites.front_default);
+        updateName(data.name);
+        updateTypes(data.types);
     } catch (err) {
         console.error(err);
     }
@@ -37,4 +39,20 @@ async function fetchPokemonData(id) {
 function updateImage(img) {
     const imageElement = document.getElementById('pokemon-image');
     imageElement.src = img;
+}
+
+function updateName(name) {
+    const nameElement = document.getElementById('pokemon-name');
+    nameElement.textContent = name;
+}
+
+function updateTypes(types) {
+    const typesContainer = document.getElementById('types-container');
+    typesContainer.innerHTML = '';
+    for (let i = 0; i < types.length; i++) {
+        const typeElement = document.createElement('p');
+        typeElement.classList.add('type');
+        typeElement.textContent = types[i].type.name;
+        typesContainer.appendChild(typeElement);
+    }
 }
