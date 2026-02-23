@@ -65,7 +65,7 @@ h2 {
     gap: 10px;
 }
 
-#pokemon-stats {
+.stats-container {
     background-color: #E8E8E8;
 
     width: 486px;

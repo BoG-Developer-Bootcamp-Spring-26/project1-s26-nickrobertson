@@ -2,6 +2,9 @@ let counter = 1;
 const leftButton = document.getElementById('left-button');
 const rightButton = document.getElementById('right-button');
 
+const infoButton = document.getElementById('info-button');
+const movesButton = document.getElementById('moves-button');
+
 function incrementCounter() {
     if (counter < 1302) {
         counter++;
@@ -32,6 +35,7 @@ async function fetchPokemonData(id) {
         updateName(data.name);
         updateTypes(data.types);
         updateStats(data.height, data.weight, data.stats);
+        updateMoves(data.moves);
     } catch (err) {
         console.error(err);
     }
@@ -79,7 +83,17 @@ function updateStats(height, weight, stats) {
         statElement.textContent = `${stats[i].stat.name}: ${stats[i].base_stat}`;
         statsContainer.appendChild(statElement);
     }
-    
+}
+
+function updateMoves(moves) {
+    const movesContainer = document.getElementById('pokemon-moves');
+    movesContainer.innerHTML = '';
+    for (let i = 0; i < 12; i++) {
+        const moveElement = document.createElement('p');
+        moveElement.classList.add('move');
+        moveElement.textContent = moves[i].move.name;
+        movesContainer.appendChild(moveElement);
+    }
 }
 
 function setTypesColor(typeName) {
@@ -121,3 +135,7 @@ function setTypesColor(typeName) {
         return '#D685A3';
     }
 }
+
+movesButton.addEventListener('click', () => {
+
+});
