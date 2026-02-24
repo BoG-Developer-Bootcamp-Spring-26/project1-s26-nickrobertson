@@ -90,6 +90,8 @@ function updateStats(height, weight, stats) {
     } else {
         statsContainer.style.display = 'none';
     }
+
+    setRightHeaderText();
 }
 
 function updateMoves(moves) {
@@ -106,6 +108,8 @@ function updateMoves(moves) {
     } else {
         movesContainer.style.display = 'none';
     }
+
+    setRightHeaderText();
 }
 
 function setTypesColor(typeName) {
@@ -157,6 +161,7 @@ infoButton.addEventListener('click', () => {
         currentView = 'info';
         infoButton.style.backgroundColor = '#7CFF79';
         movesButton.style.backgroundColor = '#E8E8E8';
+        setRightHeaderText();
     }
 });
 
@@ -169,9 +174,19 @@ movesButton.addEventListener('click', () => {
         currentView = 'moves';
         movesButton.style.backgroundColor = '#7CFF79';
         infoButton.style.backgroundColor = '#E8E8E8';
+        setRightHeaderText();
 
     }
 });
+
+function setRightHeaderText() {
+    const rightHeader = document.getElementById('right-header');
+    if (currentView === 'info') {
+        rightHeader.textContent = 'Info';
+    } else {
+        rightHeader.textContent = 'Moves';
+    }
+}
 
 function initialize() {
     fetchPokemonData(counter);
