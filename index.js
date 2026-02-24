@@ -5,6 +5,10 @@ const rightButton = document.getElementById('right-button');
 const infoButton = document.getElementById('info-button');
 const movesButton = document.getElementById('moves-button');
 
+let currentView = 'info';
+
+initialize(counter);
+
 function incrementCounter() {
     if (counter < 1302) {
         counter++;
@@ -68,20 +72,23 @@ function updateStats(height, weight, stats) {
     statsContainer.innerHTML = '';
 
     const heightElement = document.createElement('p');
-    heightElement.classList.add('height');
     heightElement.textContent = `height: ${height / 10}m`;
     statsContainer.appendChild(heightElement);
 
     const weightElement = document.createElement('p');
-    weightElement.classList.add('weight');
     weightElement.textContent = `weight: ${stats[0].base_stat / 10}kg`;
     statsContainer.appendChild(weightElement);
 
     for (let i = 0; i < stats.length; i++) {
         const statElement = document.createElement('p');
-        statElement.classList.add('stat');
         statElement.textContent = `${stats[i].stat.name}: ${stats[i].base_stat}`;
         statsContainer.appendChild(statElement);
+    }
+
+    if (currentView === 'info') {
+        statsContainer.style.display = 'block';
+    } else {
+        statsContainer.style.display = 'none';
     }
 }
 
@@ -90,9 +97,14 @@ function updateMoves(moves) {
     movesContainer.innerHTML = '';
     for (let i = 0; i < 12; i++) {
         const moveElement = document.createElement('p');
-        moveElement.classList.add('move');
         moveElement.textContent = moves[i].move.name;
         movesContainer.appendChild(moveElement);
+    }
+
+        if (currentView === 'moves') {
+        movesContainer.style.display = 'block';
+    } else {
+        movesContainer.style.display = 'none';
     }
 }
 
@@ -136,6 +148,31 @@ function setTypesColor(typeName) {
     }
 }
 
-movesButton.addEventListener('click', () => {
-
+infoButton.addEventListener('click', () => {
+    const infoContainer = document.getElementById('pokemon-stats');
+    const movesContainer = document.getElementById('pokemon-moves');
+    if (currentView === 'moves') {
+        movesContainer.style.display = 'none';
+        infoContainer.style.display = 'block';
+        currentView = 'info';
+        infoButton.style.backgroundColor = '#7CFF79';
+        movesButton.style.backgroundColor = '#E8E8E8';
+    }
 });
+
+movesButton.addEventListener('click', () => {
+    const infoContainer = document.getElementById('pokemon-stats');
+    const movesContainer = document.getElementById('pokemon-moves');
+    if (currentView === 'info') {
+        infoContainer.style.display = 'none';
+        movesContainer.style.display = 'block';
+        currentView = 'moves';
+        movesButton.style.backgroundColor = '#7CFF79';
+        infoButton.style.backgroundColor = '#E8E8E8';
+
+    }
+});
+
+function initialize() {
+    fetchPokemonData(counter);
+}
